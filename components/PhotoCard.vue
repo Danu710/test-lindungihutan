@@ -5,12 +5,12 @@
     <div class="p-4 sm:p-6 flex flex-col items-center">
       <a href="#">
         <h3 class="text-lg font-medium text-black">
-          {{ photo.id }}
+          {{ props.photo.id }}
         </h3>
       </a>
 
       <p class="m-2 line-clamp-3 text-md/relaxed text-center text-gray-900">
-        {{ photo.title }}
+        {{ props.photo.title }}
       </p>
 
       <a
@@ -20,7 +20,7 @@
         <span
           aria-hidden="true"
           class="block transition-all group-hover:ms-0.5 rtl:rotate-180">
-          {{ photo.thumbnailUrl }}
+          {{ props.photo.thumbnailUrl }}
         </span>
       </a>
     </div>
