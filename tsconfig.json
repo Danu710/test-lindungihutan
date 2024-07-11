@@ -1,19 +1,31 @@
 {
   // https://nuxt.com/docs/guide/concepts/typescript
-  "extends": "./.nuxt/tsconfig.json"
-  // "compilerOptions": {
-  //   "target": "ESNext",
-  //   "module": "ESNext",
-  //   "moduleResolution": "Node",
-  //   "esModuleInterop": true,
-  //   "skipLibCheck": true,
-  //   "strict": true,
-  //   "forceConsistentCasingInFileNames": true,
-  //   "baseUrl": ".",
-  //   "paths": {
-  //     "@/*": ["./*"]
-  //   },
-  //   "types": ["@nuxt/types", "@nuxtjs/axios", "@types/node"]
-  // },
-  // "exclude": ["node_modules", ".nuxt", "dist"]
+  "extends": "./.nuxt/tsconfig.json",
+  "compilerOptions": {
+    "target": "ESNext",
+    "module": "ESNext",
+    "moduleResolution": "Node",
+    "strict": true,
+    "jsx": "preserve",
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["components/*"],
+      "@/types/*": ["types/*"]
+    },
+    "types": ["@nuxt/types", "@types/node"],
+    "verbatimModuleSyntax": true
+  },
+  "include": [
+    "types/**/*.d.ts",
+    "nuxt.config.ts",
+    "app.vue",
+    "components/**/*.vue",
+    "pages/**/*.vue",
+    "composables/**/*.ts",
+    "plugins/**/*.ts",
+    "types/User.ts"
+  ]
 }

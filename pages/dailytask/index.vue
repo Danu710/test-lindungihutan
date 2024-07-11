@@ -1,21 +1,23 @@
 <template>
   <div class="flex flex-col items-center justify-center p-5 m-5">
-    <div class="flex items-center justify-start">
+    <div class="flex flex-row justify-between gap-10">
       <h1 class="font-mono text-2xl text-black shadow-md">Pages Daily Task</h1>
-      <button @click="openModal">Buat Tugas Baru</button>
+      <button @click="openModal" class="btn-create">Buat Tugas Baru</button>
       <CreateTaskModal
         :show="showModal"
         @close="closeModal"
         @create="createTask" />
     </div>
-    <div>
-      <ul>
+    <div class="pt-10">
+      <ul class="task-list">
         <li
           v-for="task in tasks"
           :key="task.id"
           :class="{ completed: task.completed }">
-          <span @click="toggleTaskCompletion(task.id)">{{ task.title }}</span>
-          <button @click="removeTask(task.id)">Hapus</button>
+          <span @click="toggleTaskCompletion(task.id)" class="task-title">{{
+            task.title
+          }}</span>
+          <button @click="removeTask(task.id)" class="btn-delete">Hapus</button>
         </li>
       </ul>
     </div>
@@ -101,12 +103,56 @@ const closeModal = () => {
   text-decoration: line-through;
   color: gray;
 }
-button {
-  margin-left: 10px;
-  background-color: red;
+
+.task-list {
+  list-style-type: none;
+  padding: 0;
+}
+
+.task-list li {
+  margin-bottom: 10px;
+  padding: 10px;
+  background-color: #f3f4f6;
+  border-radius: 4px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.task-list li.completed {
+  background-color: #d1e7dd;
+  text-decoration: line-through;
+}
+
+.task-title {
+  cursor: pointer;
+}
+
+.btn-create {
+  background-color: #4caf50;
   color: white;
   border: none;
-  padding: 5px;
+  padding: 5px 10px;
+  border-radius: 4px;
   cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.btn-create:hover {
+  background-color: #388e3c;
+}
+
+.btn-delete {
+  background-color: #f44336;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.btn-delete:hover {
+  background-color: #d32f2f;
 }
 </style>

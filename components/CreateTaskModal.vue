@@ -1,10 +1,14 @@
 <template>
   <div v-if="show" class="modal">
+    <div class="modal-overlay" @click="closeModal"></div>
     <div class="modal-content">
       <span class="close" @click="closeModal">&times;</span>
       <h2>Buat Tugas Baru</h2>
-      <input v-model="newTaskTitle" placeholder="Masukkan judul tugas" />
-      <button @click="handleSubmit">Buat</button>
+      <input
+        v-model="newTaskTitle"
+        placeholder="Masukkan judul tugas"
+        class="input-field" />
+      <button @click="handleSubmit" class="btn-create">Buat</button>
     </div>
   </div>
 </template>
@@ -33,36 +37,62 @@ const handleSubmit = () => {
 
 <style scoped>
 .modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
-  position: fixed;
-  z-index: 1;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  overflow: auto;
-  background-color: rgb(0, 0, 0);
-  background-color: rgba(0, 0, 0, 0.4);
+  z-index: 1000;
 }
+
 .modal-content {
-  background-color: #fefefe;
-  margin: auto;
+  background-color: white;
   padding: 20px;
-  border: 1px solid #888;
-  width: 80%;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  max-width: 400px;
+  width: 100%;
+  max-height: 80%;
+  overflow: auto;
+  position: relative;
 }
+
 .close {
-  color: #aaa;
-  float: right;
-  font-size: 28px;
-  font-weight: bold;
-}
-.close:hover,
-.close:focus {
-  color: black;
-  text-decoration: none;
+  position: absolute;
+  top: 10px;
+  right: 10px;
   cursor: pointer;
+  font-size: 1.5rem;
+  color: #888;
+}
+
+h2 {
+  margin-top: 0;
+  font-size: 1.5rem;
+}
+
+.input-field {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.btn-create {
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.btn-create:hover {
+  background-color: #45a049;
 }
 </style>

@@ -9,7 +9,6 @@
 <script setup lang="ts">
 import { ref, onMounted } from 'vue';
 import { useRoute } from 'vue-router';
-import UserDetails from '~/components/UserDetails.vue';
 
 interface User {
   name: string;

@@ -1,11 +1,14 @@
 <template>
   <div class="container">
     <h1 class="title">Daftar Pengguna</h1>
-    <ul class="ul">
-      <li v-for="user in users" :key="user.id" class="li">
-        <nuxt-link :to="`/biodata/profile/${user.id}`"
-          >{{ user.name }} <br
-        /></nuxt-link>
+    <ul class="user-list">
+      <li v-for="user in users" :key="user.id" class="user-item">
+        <nuxt-link :to="`/biodata/profile/${user.id}`">
+          <div class="user-info">
+            <h2>{{ user.name }}</h2>
+            <p>{{ user.email }}</p>
+          </div>
+        </nuxt-link>
       </li>
     </ul>
   </div>
@@ -17,6 +20,7 @@ import { ref, onMounted } from 'vue';
 interface User {
   id: number;
   name: string;
+  email: string;
 }
 
 const users = ref<User[]>([]);
@@ -32,29 +36,44 @@ onMounted(async () => {
 
 <style scoped>
 .container {
-  max-width: 600px;
+  max-width: 800px;
   margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
-  background-color: #f9f9f9;
-  border-radius: 5px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .title {
-  font-size: 2.5rem;
-  margin-bottom: 2rem;
+  font-size: 2rem;
+  margin-bottom: 20px;
   color: #333;
-  font-weight: bold;
 }
 
-.ul {
-  list-style: none;
+.user-list {
+  list-style-type: none;
   padding: 0;
-  margin: 0;
 }
 
-.li {
-  margin-bottom: 1rem;
+.user-item {
+  margin-bottom: 20px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  transition: background-color 0.3s;
+}
+
+.user-item:hover {
+  background-color: #f0f0f0;
+}
+
+.user-info {
+  cursor: pointer;
+}
+
+.user-info h2 {
+  margin: 0;
+  font-size: 1.5rem;
+}
+
+.user-info p {
+  margin: 5px 0 0;
+  color: #666;
 }
 </style>

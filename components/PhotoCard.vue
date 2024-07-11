@@ -1,15 +1,15 @@
 <template>
   <article
-    class="overflow-hidden rounded-lg border border-gray-300 shadow-xl bg-white m-5">
-    <img :src="photo.url" class="h-56 w-full object-cover" alt="Photo" />
-    <div class="p-4 sm:p-6 flex flex-col items-center">
+    class="m-5 overflow-hidden bg-white border border-gray-300 rounded-lg shadow-xl">
+    <img :src="photo.url" class="object-cover w-full h-56" alt="Photo" />
+    <div class="flex flex-col items-center p-4 sm:p-6">
       <a href="#">
         <h3 class="text-lg font-medium text-black">
           {{ props.photo.id }}
         </h3>
       </a>
 
-      <p class="m-2 line-clamp-3 text-md/relaxed text-center text-gray-900">
+      <p class="m-2 text-center text-gray-900 line-clamp-3 text-md/relaxed">
         {{ props.photo.title }}
       </p>
 
@@ -28,13 +28,12 @@
 </template>
 
 <script setup lang="ts">
-import { defineProps } from 'vue';
+interface Photo {
+  id: number;
+  title: string;
+  url: string;
+  thumbnailUrl: string;
+}
 
-// Define props for the photo data
-const props = defineProps({
-  photo: {
-    type: Object,
-    required: true,
-  },
-});
+const props = defineProps<{ photo: Photo }>();
 </script>

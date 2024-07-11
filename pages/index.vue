@@ -1,10 +1,10 @@
 <template>
   <div class="container">
-    <h1 class="title">Beranda</h1>
+    <h1 class="title">Selamat Datang di Beranda</h1>
     <div class="links">
-      <nuxt-link to="/products" class="link">Product</nuxt-link>
-      <nuxt-link to="/dailytask" class="link">Tugas Harian</nuxt-link>
-      <nuxt-link to="/biodata" class="link">BioData</nuxt-link>
+      <nuxt-link to="/products" class="link">Lihat Produk</nuxt-link>
+      <nuxt-link to="/dailytask" class="link">Lihat Tugas Harian</nuxt-link>
+      <nuxt-link to="/biodata" class="link">Lihat BioData</nuxt-link>
     </div>
   </div>
 </template>
@@ -13,44 +13,34 @@
 
 <style scoped>
 .container {
-  max-width: 600px;
-  height: 400px;
+  max-width: 800px;
   margin: 0 auto;
-  padding: 2rem;
   text-align: center;
-  background-color: #f9f9f9;
-  border-radius: 5px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .title {
   font-size: 2.5rem;
-  margin-bottom: 2rem;
+  margin-bottom: 20px;
   color: #333;
-  font-weight: bold;
 }
 
 .links {
   display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-  gap: 1rem;
+  justify-content: center;
 }
 
 .link {
-  display: inline-block;
-  padding: 0.75rem 1.5rem;
-  font-size: 1.25rem;
-  font-weight: 500;
-  color: #fff;
-  background-color: #007bff;
-  border-radius: 4px;
+  padding: 10px 20px;
+  margin: 0 10px;
   text-decoration: none;
-  transition: background-color 0.3s ease;
+  background-color: #ffde4d;
+  border: 1px solid #131842;
+  border-radius: 4px;
+  transition: background-color 0.3s, color 0.3s;
 }
 
 .link:hover {
-  background-color: #0069d9;
+  background-color: #007bff;
+  color: white;
 }
 </style>
