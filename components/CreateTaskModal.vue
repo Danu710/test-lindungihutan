@@ -87,7 +87,7 @@ h2 {
   color: white;
   border: none;
   padding: 10px 20px;
-  border-radius: 4px;
+  border-radius: 30px;
   cursor: pointer;
   transition: background-color 0.3s;
 }

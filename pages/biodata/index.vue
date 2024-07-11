@@ -1,5 +1,6 @@
 <template>
   <div class="container">
+    <BackButton />
     <h1 class="title">Daftar Pengguna</h1>
     <ul class="user-list">
       <li v-for="user in users" :key="user.id" class="user-item">

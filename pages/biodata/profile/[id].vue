@@ -1,5 +1,6 @@
 <template>
   <div>
+    <BackButton />
     <h1>Detail Pengguna</h1>
     <UserDetails v-if="user" :user="user" />
     <p v-else>Loading...</p>
@@ -35,8 +36,6 @@ interface User {
 const user = ref<User | null>(null);
 const route = useRoute();
 
-console.log('user', user);
-
 onMounted(async () => {
   const response = await fetch(
     `https://jsonplaceholder.typicode.com/users/${route.params.id}`
@@ -45,4 +44,20 @@ onMounted(async () => {
 });
 </script>
 
-<style scoped></style>
+<style scoped>
+div {
+  margin-top: 24px;
+  border: 1px solid #ddd;
+  padding: 16px;
+  border-radius: 4px;
+  margin-top: 24px;
+}
+
+h1 {
+  font-size: 30px;
+  margin-bottom: 20px;
+  color: #131842;
+  text-align: center;
+  font-style: italic;
+}
+</style>

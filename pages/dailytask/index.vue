@@ -1,5 +1,6 @@
 <template>
   <div class="flex flex-col items-center justify-center p-5 m-5">
+    <BackButton />
     <div class="flex flex-row justify-between gap-10">
       <h1 class="font-mono text-2xl text-black shadow-md">Pages Daily Task</h1>
       <button @click="openModal" class="btn-create">Buat Tugas Baru</button>
@@ -129,17 +130,23 @@ const closeModal = () => {
 }
 
 .btn-create {
-  background-color: #4caf50;
+  background-color: #729762;
   color: white;
   border: none;
-  padding: 5px 10px;
-  border-radius: 4px;
+  padding: 10px 20px;
+  border-radius: 30px;
   cursor: pointer;
   transition: background-color 0.3s ease;
 }
 
 .btn-create:hover {
   background-color: #388e3c;
+  transform: scale(1.05);
+}
+
+.btn-create:active {
+  background-color: #2e7d32;
+  transform: scale(0.95);
 }
 
 .btn-delete {

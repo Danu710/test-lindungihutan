@@ -33,14 +33,19 @@
   padding: 10px 20px;
   margin: 0 10px;
   text-decoration: none;
-  background-color: #ffde4d;
-  border: 1px solid #131842;
+  background-color: #d6efd8;
+  border: 1px solid #80af81;
   border-radius: 4px;
   transition: background-color 0.3s, color 0.3s;
 }
 
 .link:hover {
-  background-color: #007bff;
-  color: white;
+  background-color: #508d4e;
+  transform: scale(1.05);
+}
+
+.link:active {
+  background-color: #1a5319;
+  transform: scale(0.95);
 }
 </style>

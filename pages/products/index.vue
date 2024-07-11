@@ -1,5 +1,6 @@
 <template>
   <div class="flex flex-col items-center justify-center p-5 m-5">
+    <BackButton />
     <div class="flex flex-row justify-between gap-10">
       <h1
         class="p-2 font-mono text-2xl text-black border-gray-300 shadow-sm border-y">
@@ -11,7 +12,8 @@
         @update:searchQuery="updateSearchQuery" />
     </div>
 
-    <div class="grid justify-center grid-cols-3 gap-3 m-5">
+    <div
+      class="grid justify-center grid-cols-1 gap-1 m-5 md:grid-cols-3 md:gap-3">
       <PhotoCard
         v-for="photo in filteredPhotos"
         :key="photo.id"
@@ -32,7 +34,6 @@ interface Photo {
 }
 
 const photos = ref<Photo[]>([]);
-console.log('photos', photos);
 const searchQuery = ref('');
 
 const fetchPhotos = async () => {
